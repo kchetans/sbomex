@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/interlynk-io/sbomex/pkg/model"
+	"github.com/kchetans/sbomex/pkg/model"
 	"github.com/olekukonko/tablewriter"
 )
 

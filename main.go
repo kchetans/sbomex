@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/interlynk-io/sbomex/cmd"
+import "github.com/kchetans/sbomex/cmd"
 
 func main() {
 	cmd.Execute()

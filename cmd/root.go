@@ -21,7 +21,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/interlynk-io/sbomex/pkg/model"
+	"github.com/kchetans/sbomex/pkg/model"
 	"github.com/schollz/progressbar/v3"
 	"github.com/spf13/cobra"
 )

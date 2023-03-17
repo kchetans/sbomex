@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/interlynk-io/sbomex/pkg/model"
-	"github.com/interlynk-io/sbomex/pkg/utils"
+	"github.com/kchetans/sbomex/pkg/model"
+	"github.com/kchetans/sbomex/pkg/utils"
 	_ "github.com/mattn/go-sqlite3"
 )
 

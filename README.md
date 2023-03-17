@@ -16,8 +16,8 @@
 
 # `sbomex`: SBOM Explorer
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/interlynk-io/sbomex.svg)](https://pkg.go.dev/github.com/interlynk-io/sbomex)
-[![Go Report Card](https://goreportcard.com/badge/github.com/interlynk-io/sbomex)](https://goreportcard.com/report/github.com/interlynk-io/sbomex)
+[![Go Reference](https://pkg.go.dev/badge/https://github.com/kchetans/sbomex.svg)](https://pkg.go.dev/https://github.com/kchetans/sbomex)
+[![Go Report Card](https://goreportcard.com/badge/https://github.com/kchetans/sbomex)](https://goreportcard.com/report/https://github.com/kchetans/sbomex)
 
 `sbomex` is a command line utility to help query and pull from Interlynk's public SBOM repository. The tool is intended to help familiarize with the specifications and formats of common SBOM standards and the quality of produced SBOMs (See [sbomqs](https://github.com/interlynk-io/sbomqs/) - SBOM Quality Score for how the score is computed). 
 
@@ -62,7 +62,7 @@ sbomex pull --id 23
 ## Using Prebuilt binaries 
 
 ```console
-https://github.com/interlynk-io/sbomex/releases
+https://github.com/kchetans/sbomex/releases
 ```
 
 ## Using Homebrew
@@ -74,7 +74,7 @@ brew install sbomex
 ## Using Go install
 
 ```console
-go install github.com/interlynk-io/sbomex@latest
+go install https://github.com/kchetans/sbomex@latest
 ```
 
 ## Using repo

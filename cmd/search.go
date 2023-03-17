@@ -18,10 +18,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/interlynk-io/sbomex/pkg/db"
-	"github.com/interlynk-io/sbomex/pkg/logger"
-	"github.com/interlynk-io/sbomex/pkg/model"
-	"github.com/interlynk-io/sbomex/pkg/view"
+	"github.com/kchetans/sbomex/pkg/db"
+	"github.com/kchetans/sbomex/pkg/logger"
+	"github.com/kchetans/sbomex/pkg/model"
+	"github.com/kchetans/sbomex/pkg/view"
 
 	"github.com/spf13/cobra"
 )

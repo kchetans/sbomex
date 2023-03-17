@@ -50,7 +50,7 @@ sboms:
 
 nfpms:
   - package_name: sbomex
-    homepage: https://github.com/interlynk-io/sbomex/
+    homepage: https://github.com/kchetans/sbomex/
     description: |-
             sbomex installer package. CLI application to generate SHA256 hashes of texts.
     formats:
@@ -58,11 +58,11 @@ nfpms:
       - deb
 
 brews:
-  - homepage: https://github.com/interlynk-io/sbomex
+  - homepage: https://github.com/kchetans/sbomex
     description: sbomex is a command line utility to help query and pull from
       Interlynk public SBOM
     license: Apache-2.0
     folder: Formula
     tap:
-      owner: interlynk-io
+      owner: kchetans
       name: sbomex

@@ -62,5 +62,5 @@ brews:
     description: 'Binary distribution for homebrew.'
     folder: Formula
     tap:
-      owner: interlynk-io
+      owner: kchetans
       name: sbomex

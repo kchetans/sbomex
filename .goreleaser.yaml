@@ -58,11 +58,14 @@ nfpms:
       - deb
 
 brews:
-  - homepage: https://github.com/kchetans/sbomex
+  - name: sbomex
+    homepage: https://github.com/kchetans/homebrew-repos
     description: sbomex is a command line utility to help query and pull from
       Interlynk public SBOM
     license: Apache-2.0
     folder: Formula
+    token: "{{ .secrets.TOKEN }}"
     tap:
       owner: kchetans
-      name: sbomex
+      name: homebrew-repos
+

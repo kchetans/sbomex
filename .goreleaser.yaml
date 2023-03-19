@@ -43,13 +43,6 @@ sboms:
     - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.sbom"
   artifacts: archive
   cmd: syft
-  args:
-    - $artifact
-    - --file
-    - $sbom
-    - --output
-    - cyclonedx-json
-    - spdx-json
 brews:
   - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}
     homepage: https://github.com/kchetans/sbomex

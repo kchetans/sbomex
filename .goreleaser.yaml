@@ -44,18 +44,10 @@ release:
   prerelease: allow 
   draft: true 
 
-
 sboms:
   - artifacts: archive
-
-nfpms:
-  - package_name: sbomex
-    homepage: https://github.com/kchetans/sbomex/
-    description: |-
-            sbomex installer package. CLI application to generate SHA256 hashes of texts.
-    formats:
-      - rpm
-      - deb
+  - id: source # Two different sbom configurations need two different IDs
+    artifacts: source
 
 brews:
   - name: sbomex

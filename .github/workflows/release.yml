@@ -25,6 +25,7 @@ jobs:
           format: cyclonedx-json
           artifact-name: cyclonedx-json
       - uses: anchore/sbom-action@v0
+        with: 
           format: spdx-json
           artifact-name: spdx-json
       - name: Goreleaser

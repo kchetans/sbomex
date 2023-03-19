@@ -49,8 +49,6 @@ sboms:
   - documents:
     - "${artifact}.cdx.sbom"
     - "${artifact}.spdx.sbom"
-    artifacts: binary
-    cmd: cyclonedx-gomod
     args: ["bin", "-version", "{{ .Tag }}", "-json", "-output", "$document", "$artifact"]
 brews:
   - name: sbomex

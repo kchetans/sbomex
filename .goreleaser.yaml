@@ -49,7 +49,7 @@ sboms:
       - "{{ .ProjectName }}.cdx.json"
       - "{{ .ProjectName }}.spdx.json"
     artifacts: archive
-    cmd: cyclonedx-gomod
+    cmd: syft
     args: ["app",  "-json", "-output", "$document", "$artifact"]
 brews:
   - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}

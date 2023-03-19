@@ -42,36 +42,23 @@ sboms:
   - id: cdx
     documents:
       - ${artifact}.cdx.sbom
-    artifacts: binary
+    artifacts: archive
     cmd: syft
-    args:
-      - bin
-      - -version
-      - "{{ .Tag }}"
-      - -json
-      - -output
-      - $document
-      - $artifact
+    args: ["$artifact", "--file", "$sbom", "--output", "spdx-json"]
   - id: spdx
     documents:
       - ${artifact}.spdx.sbom
-    artifacts: binary
+    artifacts: archive
     cmd: syft
-    args:
-      - bin
-      - -version
-      - "{{ .Tag }}"
-      - -json
-      - -output
-      - $document
-      - $artifact
+    args: ["$artifact", "--file", "$sbom", "--output", "spdx-json"]
 brews:
-  - name: sbomex
-    homepage: https://github.com/kchetans/homebrew-repos
+  - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}
+    homepage: https://github.com/kchetans/sbomex
     description: sbomex is a command line utility to help query and pull from
       Interlynk public SBOM
     license: Apache-2.0
     folder: Formula
+    url_template: https://github.com/kchetans/sbomex/releases/download/{{ .Tag }}/{{ .ArtifactName }}
     tap:
       owner: kchetans
       name: homebrew-repos

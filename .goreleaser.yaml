@@ -40,17 +40,13 @@ release:
   draft: true
 sboms:
   - documents:
-    - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.sbom"
+    - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.cdx.sbom"
+    - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.spdx.sbom"
+    - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.spdx.json"
+    - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.cdx.json"
   artifacts: archive
   cmd: syft
-
-  - documents:
-      - "{{ .ProjectName }}.cdx.sbom"
-      - "{{ .ProjectName }}.cdx.json"
-      - "{{ .ProjectName }}.spdx.json"
-    artifacts: archive
-    cmd: syft
-    args: ["app",  "-json", "-output", "$document", "$artifact"]
+  args: ["app",  "-json", "-output", "$document", "$artifact"]
 brews:
   - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}
     homepage: https://github.com/kchetans/sbomex

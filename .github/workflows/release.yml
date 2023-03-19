@@ -21,13 +21,14 @@ jobs:
           check-latest: true
           cache: true
       - uses: anchore/sbom-action@v0 # installs syft
-        id: spdx    
-        with:
-          format: spdx
-      - uses: anchore/sbom-action@v0 # installs syft
-        id: cdx    
-        with:
-          format: cyclonedx    
+        - id: cyclonedx-json    
+          with:
+            format: cyclonedx-json
+            artifact-name: sbom-cdx.json	
+        - id: spdx-json    
+          with:
+            format: spdx-json
+            artifact-name: sbom-spdx.json	
       - name: Goreleaser
         uses: goreleaser/goreleaser-action@v4
         with:

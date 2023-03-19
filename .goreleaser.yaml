@@ -39,18 +39,17 @@ release:
   prerelease: allow
   draft: true
 sboms:
-  - id: cdx
-    documents:
-      - ${artifact}.cdx.sbom
-    artifacts: archive
-    cmd: syft
-    args: ["$artifact", "--file", "$sbom", "--output", "cyclonedx-json"]
-  - id: spdx
-    documents:
-      - ${artifact}.spdx.sbom
-    artifacts: archive
-    cmd: syft
-    args: ["$artifact", "--file", "$sbom", "--output", "spdx-json"]
+  documents:
+    - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.sbom"
+  artifacts: archive
+  cmd: syft
+  args:
+    - $artifact
+    - --file
+    - $sbom
+    - --output
+    - cyclonedx-json
+    - spdx-json
 brews:
   - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}
     homepage: https://github.com/kchetans/sbomex
@@ -58,7 +57,8 @@ brews:
       Interlynk public SBOM
     license: Apache-2.0
     folder: Formula
-    url_template: https://github.com/kchetans/sbomex/releases/download/{{ .Tag }}/{{ .ArtifactName }}
+    url_template: https://github.com/kchetans/sbomex/releases/download/{{ .Tag }}/{{
+      .ArtifactName }}
     tap:
       owner: kchetans
       name: homebrew-repos

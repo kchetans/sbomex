@@ -39,9 +39,9 @@ release:
   prerelease: allow
   draft: true
 sboms:
-  artifacts: archive
-  cmd: syft
-  args: ["app",  "-json", "-output", "$document", "$artifact"]
+  - artifacts: archive
+    cmd: syft
+    args: ["app",  "-json", "-output", "$document", "$artifact"]
 brews:
   - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}
     homepage: https://github.com/kchetans/sbomex

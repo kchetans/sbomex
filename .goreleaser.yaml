@@ -45,7 +45,7 @@ release:
   draft: true 
 
 sboms:
-  - artifacts: binary
+  - artifacts: any
   - documents:
     - "${artifact}.cdx.sbom"
     - "${artifact}.spdx.sbom"

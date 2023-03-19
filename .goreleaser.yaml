@@ -46,13 +46,6 @@ release:
 
 sboms:
   - artifacts: archive
-  - id: source # Two different sbom configurations need two different IDs
-    artifacts: source
-    documents:
-      - "${artifact}.spdx.sbom"
-    cmd: syft
-  
-
 brews:
   - name: sbomex
     homepage: https://github.com/kchetans/homebrew-repos

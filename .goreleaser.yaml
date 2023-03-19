@@ -43,7 +43,7 @@ sboms:
     documents:
       - ${artifact}.cdx.sbom
     artifacts: binary
-    cmd: cyclonedx-gomod
+    cmd: syft
     args:
       - bin
       - -version

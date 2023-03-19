@@ -1,26 +1,23 @@
+---
 project_name: sbomex
-
 env:
   - GO111MODULE=on
-
 before:
   hooks:
     - go mod tidy
-    
 gomod:
-  proxy: true 
-
+  proxy: true
 builds:
-  - id: binaries 
+  - id: binaries
     binary: sbomex-{{ .Os }}-{{ .Arch }}
     main: .
     flags:
-      - -trimpath 
-    mod_timestamp: '{{ .CommitTimestamp }}'
+      - -trimpath
+    mod_timestamp: "{{ .CommitTimestamp }}"
     goos:
       - linux
       - windows
-      - darwin 
+      - darwin
     goarch:
       - arm64
       - amd64
@@ -31,25 +28,43 @@ builds:
     no_unique_dist_dir: true
     overrides:
       - env:
-         - CGO_ENABLED=1
+          - CGO_ENABLED=1
 archives:
-- format: binary
-  name_template: "{{ .Binary }}"
-  allow_different_binary_count: true 
-
-snapshot: 
+  - format: binary
+    name_template: "{{ .Binary }}"
+    allow_different_binary_count: true
+snapshot:
   name_template: SNAPSHOT-{{ .ShortCommit }}
-
 release:
-  prerelease: allow 
-  draft: true 
-
+  prerelease: allow
+  draft: true
 sboms:
-  - artifacts: any
-  - documents:
-    - "${artifact}.cdx.sbom"
-    - "${artifact}.spdx.sbom"
-    args: ["bin", "-version", "{{ .Tag }}", "-json", "-output", "$document", "$artifact"]
+  - id: cdx
+    documents:
+      - ${artifact}.cdx.sbom
+    artifacts: binary
+    cmd: cyclonedx-gomod
+    args:
+      - bin
+      - -version
+      - "{{ .Tag }}"
+      - -json
+      - -output
+      - $document
+      - $artifact
+  - id: spdx
+    documents:
+      - ${artifact}.spdx.sbom
+    artifacts: binary
+    cmd: syft
+    args:
+      - bin
+      - -version
+      - "{{ .Tag }}"
+      - -json
+      - -output
+      - $document
+      - $artifact
 brews:
   - name: sbomex
     homepage: https://github.com/kchetans/homebrew-repos
@@ -60,4 +75,3 @@ brews:
     tap:
       owner: kchetans
       name: homebrew-repos
-

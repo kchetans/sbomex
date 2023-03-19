@@ -44,7 +44,7 @@ sboms:
       - ${artifact}.cdx.sbom
     artifacts: archive
     cmd: syft
-    args: ["$artifact", "--file", "$sbom", "--output", "spdx-json"]
+    args: ["$artifact", "--file", "$sbom", "--output", "cyclonedx-json"]
   - id: spdx
     documents:
       - ${artifact}.spdx.sbom

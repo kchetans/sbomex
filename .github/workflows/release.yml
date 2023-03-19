@@ -20,7 +20,14 @@ jobs:
           go-version: '>=1.20'
           check-latest: true
           cache: true
-      - uses: anchore/sbom-action@v0 # installs syft    
+      - uses: anchore/sbom-action@v0 # installs syft
+        id: spdx    
+        with:
+          format: spdx
+      - uses: anchore/sbom-action@v0 # installs syft
+        id: cdx    
+        with:
+          format: cyclonedx    
       - name: Goreleaser
         uses: goreleaser/goreleaser-action@v4
         with:

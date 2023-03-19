@@ -39,10 +39,18 @@ release:
   prerelease: allow
   draft: true
 sboms:
-  documents:
+  - documents:
     - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.sbom"
   artifacts: archive
   cmd: syft
+
+  - documents:
+      - "{{ .ProjectName }}.cdx.sbom"
+      - "{{ .ProjectName }}.cdx.json"
+      - "{{ .ProjectName }}.spdx.json"
+    artifacts: archive
+    cmd: cyclonedx-gomod
+    args: ["app",  "-json", "-output", "$document", "$artifact"]
 brews:
   - name: sbomex @{{ .Major }}.{{ .Minor }}.{{ .Patch }}
     homepage: https://github.com/kchetans/sbomex

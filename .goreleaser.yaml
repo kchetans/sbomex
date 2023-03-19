@@ -64,7 +64,6 @@ brews:
       Interlynk public SBOM
     license: Apache-2.0
     folder: Formula
-    token: "{{ .secrets.TOKEN }}"
     tap:
       owner: kchetans
       name: homebrew-repos
